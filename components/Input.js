@@ -2,7 +2,7 @@ import { View, StyleSheet, TextInput } from 'react-native'
 
 export default function Input({placeholder}) {
     return (
-        <View>
+        <View style={{width: '100%'}}>
             <TextInput
             placeholder={placeholder}
             autoCorrect={false}
