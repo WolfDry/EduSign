@@ -1,8 +1,15 @@
 import { KeyboardAvoidingView, ScrollView, View, Image, StyleSheet, Text} from "react-native";
 import Input from '../components/Input'
+import Button from "../components/Button";
 import globalStyles from "../assets/styles/style"
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 export function LoginScreen() {
+
+    // const {token} = useContext(AuthContext)
+
+    // console.log(token)
 
     return (
         
@@ -22,6 +29,9 @@ export function LoginScreen() {
                         <Input placeholder={'Email'}/>
                         <Input placeholder={'Mot de passe'}/>
                     </View>
+                    <View style={{flex: 1, width: '100%', paddingHorizontal:'25%'}}>
+                        <Button children={'Connexion'} icon={'person'}/>
+                    </View>
             </ScrollView>
         </KeyboardAvoidingView>
     )
@@ -29,9 +39,9 @@ export function LoginScreen() {
 
 const styles = StyleSheet.create({
     form:{
-        flex: 3,
+        flex: 1.5,
         width: '80%',
         alignSelf: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     }
 })

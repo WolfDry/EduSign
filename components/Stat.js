@@ -8,12 +8,13 @@ export default function Stat({title, stat}) {
           .padStart(6, '0');
         return `#${randomColor}`;
       };
+
     return (
         <View style={[styles.stat, {backgroundColor: generateColor()}]}>
             <Text style={[{fontSize: 15, flex: 1}]}>
                 {title}
             </Text>
-            <Text style={[{flex: 2, fontSize: 40, fontWeight: 'bold'}]}>
+            <Text style={[{flex: 2, fontSize: 20, fontWeight: 'bold'}]}>
                 {stat}
             </Text>
         </View>
@@ -22,10 +23,13 @@ export default function Stat({title, stat}) {
 
 const styles = StyleSheet.create({
     stat:{
-        margin: 15,
+        flexWrap: 'wrap',
+        marginHorizontal: 15,
+        marginVertical: 5,
         padding: 10,
         justifyContent: 'center',
-        width: 125,
+        width: '90%',
+        height: '13%',
         borderRadius: 25,
     }
 })
