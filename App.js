@@ -6,6 +6,7 @@ import {StatScreen} from './views/StatScreen'
 import { Icon } from '@rneui/themed';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AuthProvider } from './context/AuthContext';
+import { ProfilScreen } from './views/ProfileScreen';
 
 const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
@@ -47,7 +48,7 @@ export default function App() {
           <Tab.Screen name="Statistiques" component={StatScreen} />
           <Tab.Screen name="Documents" component={StatScreen} />
           <Tab.Screen name="Calendrier" component={StatScreen} />
-          <Tab.Screen name="Profil" component={LoginScreen} />
+          <Tab.Screen name="Profil" component={ProfilScreen} />
         </Tab.Navigator>
       </NavigationContainer>
     )
