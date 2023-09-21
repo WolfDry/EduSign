@@ -6,7 +6,7 @@ import { Icon } from "@rneui/themed";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export function AccueilScreen({navigation}) {
+export function InfosModule({navigation}) {
   const [userFirstName, setUserFirstName] = useState("");
 
   //   useEffect(() => {
@@ -59,7 +59,7 @@ export function AccueilScreen({navigation}) {
         <Text style={{ fontSize: 18 }}>Today</Text>
       </View>
       <View style={[styles.contentModule]}>
-        <Pressable onPress={()=>{navigation.navigate('InfosModule')}}>
+        <Pressable onPress={()=>{navigation.navigate('Documents')}}>
             <Module
             titleModule={"Starter pack"}
             timeModule={"9:00 AM - 12:00 PM"}
