@@ -11,7 +11,6 @@ import { AuthProvider } from './context/AuthContext';
 const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
 
-
 export default function App() {
   let user = {
     isConnected: true
