@@ -51,7 +51,7 @@ export function AccueilScreen() {
           Hello, {userFirstName}
         </Text>
         <View style={[styles.btnHome]}>
-          <Button children={"Justify an absence"} />
+          <Button children={"Justify an absence"} icon={'home-outline'} />
         </View>
       </View>
       <View style={[styles.textContent]}>
@@ -107,8 +107,8 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   btnHome: {
-    marginRight: 140,
-    marginBottom: 20,
+    width: '50%',
+    marginLeft: '10%'
   },
   textContent: {
     marginLeft: 20,
