@@ -11,16 +11,17 @@ const Module = ({ titleModule, timeModule }) => {
     iconStyle,
     textContainer,
     iconCheck,
+    iconBook,
   } = styles;
   return (
     <View style={moduleContainer}>
-      <Icon style={iconStyle} name="book" />
+      <Icon style={iconBook} name="book" type="ionicon" />
       <View style={textContainer}>
         <Text style={titleStyle}>{titleModule}</Text>
         <Text style={timeStyle}>{timeModule}</Text>
       </View>
       <View style={iconCheck}>
-        <Icon style={iconStyle} name="check" />
+        <Icon style={iconStyle} name="checkmark-outline" type="ionicon" />
       </View>
     </View>
   );
@@ -29,11 +30,10 @@ const Module = ({ titleModule, timeModule }) => {
 // create some styles
 const styles = StyleSheet.create({
   moduleContainer: {
-    flex: 1,
     flexDirection: "row",
-    alignItems: "center", 
+    alignItems: "center",
     padding: 10,
-    margin: 30,
+    margin: 10,
   },
   textContainer: {
     flexDirection: "column",
@@ -41,21 +41,25 @@ const styles = StyleSheet.create({
   },
   titleStyle: {
     alignSelf: "center",
-    color: "#007aff",
+    color: "#000000",
     fontSize: 16,
     fontWeight: "600",
     marginRight: 40,
   },
   timeStyle: {
-    alignSelf: "center",
-    color: "#007aff",
+    color: "#d3d3d3",
     fontSize: 10,
     fontWeight: "600",
   },
   iconCheck: {
-    marginLeft: 'auto',
+    marginLeft: "auto",
     marginRight: 10,
   },
+  iconBook: {
+    backgroundColor: "#d3d3d3",
+    padding: 10,
+    borderRadius: 5,
+  }
 });
 
 export default Module;

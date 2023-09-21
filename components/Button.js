@@ -9,7 +9,7 @@ const Button = ({ buttonPress, children }) => {
     <View style={buttonContainer}>
       <TouchableOpacity onPress={buttonPress} style={buttonStyle}>
         <Text style={textStyle }> {children} </Text>
-        <Icon style={iconStyle} name="house" />
+        <Icon style={iconStyle} name="home-outline" type="ionicon" />
       </TouchableOpacity>
     </View>
   );
