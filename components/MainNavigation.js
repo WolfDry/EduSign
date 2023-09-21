@@ -4,6 +4,7 @@ import {StatScreen} from '../views/StatScreen';
 import {DocScreen} from '../views/DocScreen';
 import { Icon } from '@rneui/themed';
 import { CalendrierScreen } from '../views/CalendrierScreen';
+import { ProfilScreen } from '../views/ProfileScreen';
 
 export function Main(){
     const Tab = createBottomTabNavigator()
@@ -37,7 +38,7 @@ export function Main(){
             <Tab.Screen name="Statistiques" component={StatScreen} />
             <Tab.Screen name="Documents" component={DocScreen} />
             <Tab.Screen name="Calendrier" component={CalendrierScreen} />
-            <Tab.Screen name="Profil" component={CalendrierScreen} />
+            <Tab.Screen name="Profil" component={ProfilScreen} />
           </Tab.Navigator>
     )
 }
