@@ -22,6 +22,8 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     fontSize: 13,
     fontWeight: "600",
+    width: '90%',
+    textAlign: 'center',
   },
   buttonStyle: {
     flexDirection: "row",

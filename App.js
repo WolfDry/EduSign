@@ -4,7 +4,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AuthProvider } from './context/AuthContext';
 import { InfosModule } from './views/InfosModule';
 import { Main } from './components/MainNavigation';
-import { ProfilScreen } from './views/ProfileScreen';
 
 const Stack = createNativeStackNavigator()
 
@@ -16,7 +15,8 @@ export default function App() {
   if(user.isConnected){
     return(
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{
+            headerShown: false}}>
           <Stack.Screen name="Main" component={Main}/>
           <Stack.Screen name="InfosModule" component={InfosModule}/>
         </Stack.Navigator>

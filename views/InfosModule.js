@@ -45,57 +45,45 @@ export function InfosModule({navigation}) {
   //   }, []);
 
   return (
-    <ScrollView contentContainerStyle={globalStyles.fullScreen}>
-      <View style={{ flex: 0.3, justifyContent: "center" }}></View>
-      <View style={[styles.contentUser]}>
-        <Text style={[styles.nameUser]}>
-          Hello, {userFirstName}
-        </Text>
-        <View style={[styles.btnHome]}>
-          <Button children={"Justify an absence"} icon={'home-outline'} />
-        </View>
-      </View>
-      <View style={[styles.textContent]}>
-        <Text style={{ fontSize: 18 }}>Today</Text>
-      </View>
-      <View style={[styles.contentModule]}>
-        <Pressable onPress={()=>{navigation.navigate('Documents')}}>
-            <Module
-            titleModule={"Starter pack"}
-            timeModule={"9:00 AM - 12:00 PM"}
-            />
+    <View style={[globalStyles.fullScreen, {paddingVertical: '20%', paddingHorizontal: '7%'}]}>
+        <Pressable onPress={()=> navigation.goBack()}>
+            <Text>
+                Retour
+            </Text>
         </Pressable>
-        <View>
-            <Module
-            titleModule={"Starter pack"}
-            timeModule={"9:00 AM - 12:00 PM"}
-            />
-        </View>
-      </View>
-      <View style={{ marginLeft: '5%'}}>
-        <Text
-          style={{
-            fontSize: 18,
-            color: Object.keys(hasModules).length > 0 ? "#000000" : "#d3d3d3",
-          }}
-          onPress={()=>{setIsDiplay(!isDisplay)}}
-        >
-          See all
-        </Text>
-        {
-          Object.keys(hasModules).length > 0 && isDisplay === true ? 
-          <Text>
-            <View>
-                <Module
-                titleModule={"Starter pack"}
-                timeModule={"9:00 AM - 12:00 PM"}
-                />
+        <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', marginVertical: '5%'}}>
+            <Icon type="ionicon" name="alarm"/>
+            <View style={{marginHorizontal: '5%'}}>
+                <Text>09:00 - 12:30</Text>
+                <Text>22/09/2023</Text>
             </View>
-          </Text>
-          : <></>
-        }
-      </View>
-    </ScrollView>
+        </View>
+        <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', marginVertical: '5%'}}>
+            <Icon type="ionicon" name="home"/>
+            <View style={{marginHorizontal: '5%'}}>
+                <Text>V 005</Text>
+                <Text>Salle</Text>
+            </View>
+        </View>
+        <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', marginVertical: '5%'}}>
+            <Icon type="ionicon" name="person"/>
+            <View style={{marginHorizontal: '5%'}}>
+                <Text>Benjamin Delamarre</Text>
+                <Text>Intervenant</Text>
+            </View>
+        </View>
+        <View style={{flex: 4, marginVertical: '5%'}}>
+            <Text>
+                Description
+            </Text>
+            <Text>
+                MBA1 Développeur Full-Stack
+            </Text>
+        </View>
+        <View>
+            <Button children={'Signe & Scan'} icon={'qr-code'}/>
+        </View>
+    </View>
   );
 }
 
