@@ -1,17 +1,60 @@
-import { Text, View, StyleSheet, ScrollView } from "react-native";
+import { Text, View, StyleSheet, ScrollView, Alert } from "react-native";
 import globalStyles from "../assets/styles/style";
-// import axios from "axios";
+import axios from "axios";
 import { Icon } from "@rneui/themed";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import { useState } from "react";
+import apiBaseUrl from "../api/apiConfig";
 
 export function ChangePassword() {
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
+
+  const handleSavePassword = () => {
+    axios
+      .post(`${apiBaseUrl}/user/change-password`, {
+        currentPassword: currentPassword,
+        newPassword: newPassword,
+      })
+      .then((response) => {
+        if (response.data.success) {
+          Alert.alert("Success", "Your password has been changed");
+          setCurrentPassword("");
+          setNewPassword("");
+          setRepeatPassword("");
+        } else {
+          Alert.alert("Error", "Your password has not been changed");
+        }
+      })
+      .catch((error) => {
+        console.error("Error :", error);
+        Alert.alert("Error", "An error occured while changing your password");
+      });
+  };
+
   return (
     <ScrollView contentContainerStyle={globalStyles.fullScreen}>
-      <View style={[styles.form, { marginTop: 60 }]}>
-        <Input placeholder={"Current password"} />
-        <Input placeholder={"New password"} />
-        <Input placeholder={"Repeat password"} />
+      <View style={[styles.form, { marginTop: 160 }]}>
+        <Input
+          placeholder={"Current password"}
+          secureTextEntry={true} // Masquez le texte du mot de passe
+          value={currentPassword}
+          onChangeText={(text) => setCurrentPassword(text)}
+        />
+        <Input
+          placeholder={"New password"}
+          secureTextEntry={true}
+          value={newPassword}
+          onChangeText={(text) => setNewPassword(text)}
+        />
+        <Input
+          placeholder={"Repeat password"}
+          secureTextEntry={true}
+          value={repeatPassword}
+          onChangeText={(text) => setRepeatPassword(text)}
+        />
       </View>
       <View style={styles.instructionsContainer}>
         {[
@@ -35,7 +78,7 @@ export function ChangePassword() {
                 name="ellipse"
                 type="ionicon"
                 color="red"
-                size={15}
+                size={13}
               />
               <Text style={styles.text}>{text}</Text>
             </View>
@@ -44,7 +87,7 @@ export function ChangePassword() {
       </View>
 
       <View style={{ flex: 1, width: "100%", paddingHorizontal: "25%" }}>
-        <Button children={"Save"} />
+        <Button children={"Save"} onPress={handleSavePassword} />
       </View>
     </ScrollView>
   );
