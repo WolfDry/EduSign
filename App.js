@@ -5,6 +5,7 @@ import { AuthProvider } from './context/AuthContext';
 import { InfosModule } from './views/InfosModule';
 import { Main } from './components/MainNavigation';
 import { ChangePassword } from './views/ChangePassword';
+import QrCodeScreen from './views/QrCodeScreen';
 
 const Stack = createNativeStackNavigator()
 
@@ -21,6 +22,7 @@ export default function App() {
           <Stack.Screen name="Main" component={Main}/>
           <Stack.Screen name="InfosModule" component={InfosModule}/>
           <Stack.Screen name="ChangePassword" component={ChangePassword}/>
+          <Stack.Screen name="QrCodeScreen" component={QrCodeScreen}/>
         </Stack.Navigator>
       </NavigationContainer>
     )

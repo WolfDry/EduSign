@@ -3,7 +3,7 @@ import { TouchableOpacity, Text, StyleSheet, View } from "react-native";
 import { Icon } from "@rneui/themed";
 
 // create a function called Button
-const Button = ({ buttonPress, children, icon }) => {
+const Button = ({ buttonPress = () => { }, children, icon }) => {
   const { buttonStyle, textStyle, buttonContainer, iconStyle } = styles;
   return (
       <TouchableOpacity onPress={buttonPress} style={buttonStyle}>

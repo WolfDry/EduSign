@@ -44,6 +44,10 @@ export function InfosModule({navigation}) {
   //       });
   //   }, []);
 
+  const navig = () =>{
+    navigation.navigate('QrCodeScreen')
+  }
+
   return (
     <View style={[globalStyles.fullScreen, {paddingVertical: '20%', paddingHorizontal: '7%'}]}>
         <Pressable onPress={()=> navigation.goBack()}>
@@ -81,7 +85,7 @@ export function InfosModule({navigation}) {
             </Text>
         </View>
         <View>
-            <Button children={'Signe & Scan'} icon={'qr-code'}/>
+            <Button children={'Signe & Scan'} icon={'qr-code'} buttonPress={navig}/>
         </View>
     </View>
   );
