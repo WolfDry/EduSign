@@ -5,14 +5,12 @@ import axios from 'axios'
 export const AuthContext = createContext()
 
 export const AuthProvider = ({children}) => {
-    const [token, setToken] = useState('')
+    const [token, setToken] = useState(null)
 
-    const setNewToken = (newToken)=>{
-        setToken(newToken)
-    }
+    // console.log(setToken)
 
     return(
-        <AuthContext.Provider value={[token, setNewToken]}>
+        <AuthContext.Provider value={[token, setToken]}>
             {children}
         </AuthContext.Provider>
     )

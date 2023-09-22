@@ -12,29 +12,31 @@ export function LoginScreen() {
 
     const [inputs, setInputs] = useState({})
 
-    const [token, setNewToken] = React.useContext(AuthContext)
+    const [,setToken] = React.useContext(AuthContext)
 
     const handleOnchange = (text, input) => {
         setInputs((prevState) => ({ ...prevState, [input]: text }))
     }
 
+    console.log(setToken)
+
     const validate = async ()=>{
         try {
             const url = `${apiBaseUrl}api/auth/token/`
-            const json = JSON.stringify(inputs)
             const response = await axios.post(url, {
               email: inputs.email,
               password: inputs.password
             });
       
             if (response.status === 200) {
-            //   setNewToken(response.data.access)
+              setToken(response.data.access)
               setInputs({});
             } else {
                 console.log(response.data)
                 throw new Error("coucou");
             }
           } catch (error) {
+            console.log(error)
             alert("Erreur catch " + error);
           }
     }
