@@ -32,7 +32,7 @@ export function ProfilScreen() {
 
   // change password
   const handleChangePassword = () => {
-    navigation.navigate("ChangePasswordScreen");
+    navigation.navigate("ChangePassword");
   };
   return (
     <View style={globalStyles.fullScreen}>
