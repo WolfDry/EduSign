@@ -5,14 +5,14 @@ import globalStyles from "../assets/styles/style"
 import apiBaseUrl from '../api/apiConfig'
 import { useState } from "react";
 import axios from "axios";
+import { AuthContext } from "../context/AuthContext";
+import React from "react";
 
 export function LoginScreen() {
 
     const [inputs, setInputs] = useState({})
 
-    // const {token} = useContext(AuthContext)
-
-    // console.log(token)
+    const [token, setNewToken] = React.useContext(AuthContext)
 
     const handleOnchange = (text, input) => {
         setInputs((prevState) => ({ ...prevState, [input]: text }))
@@ -20,18 +20,19 @@ export function LoginScreen() {
 
     const validate = async ()=>{
         try {
-            const url = `${apiBaseUrl}api/auth/token`
-            console.log(url)
-            console.log(inputs)
+            const url = `${apiBaseUrl}api/auth/token/`
+            const json = JSON.stringify(inputs)
             const response = await axios.post(url, {
-              inputs
+              email: inputs.email,
+              password: inputs.password
             });
       
-            if (response.status === 201) {
-              alert(` You have created: ${JSON.stringify(response.data)}`);
+            if (response.status === 200) {
+            //   setNewToken(response.data.access)
               setInputs({});
             } else {
-              throw new Error("Erreur 200");
+                console.log(response.data)
+                throw new Error("coucou");
             }
           } catch (error) {
             alert("Erreur catch " + error);

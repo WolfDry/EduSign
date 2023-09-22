@@ -5,30 +5,14 @@ import axios from 'axios'
 export const AuthContext = createContext()
 
 export const AuthProvider = ({children}) => {
-    const [token, setToken] = useState(false)
+    const [token, setToken] = useState('')
 
-    const login = async (email, password) => {
-
-        const jwtToken = 'fakeToken';
-
-        const config = {
-            headers: {
-                Accept: 'application/json',
-                Authorization: 'Bearer ' + jwtToken,
-            }
-        }
-
-        const data = await axios.get('http://localhost:8000/api/resources', config)
-            .then((response) => {
-                console.log(response)
-                return response.data;
-            });
-
-        console.log(data);
+    const setNewToken = (newToken)=>{
+        setToken(newToken)
     }
 
     return(
-        <AuthContext.Provider value={{token}}>
+        <AuthContext.Provider value={[token, setNewToken]}>
             {children}
         </AuthContext.Provider>
     )
