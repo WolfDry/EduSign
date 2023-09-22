@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AuthProvider } from './context/AuthContext';
 import { InfosModule } from './views/InfosModule';
 import { Main } from './components/MainNavigation';
-import { ProfilScreen } from './views/ProfileScreen';
+import { ChangePassword } from './views/ChangePassword';
 
 const Stack = createNativeStackNavigator()
 
@@ -19,6 +19,7 @@ export default function App() {
         <Stack.Navigator>
           <Stack.Screen name="Main" component={Main}/>
           <Stack.Screen name="InfosModule" component={InfosModule}/>
+          <Stack.Screen name="ChangePassword" component={ChangePassword}/>
         </Stack.Navigator>
       </NavigationContainer>
     )

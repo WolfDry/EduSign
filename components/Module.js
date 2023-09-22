@@ -21,7 +21,7 @@ const Module = ({ titleModule, timeModule }) => {
         <Text style={timeStyle}>{timeModule}</Text>
       </View>
       <View style={iconCheck}>
-        <Icon style={iconStyle} name="checkmark-outline" type="ionicon" />
+        <Icon style={iconStyle} name="checkmark-outline" type="ionicon"  color="green"/>
       </View>
     </View>
   );
