@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Button } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
+import apiBaseUrl from '../api/apiConfig'
+import axios from "axios";
 
 export default function QrCodeScreen() {
   const [hasPermission, setHasPermission] = useState(null);
@@ -17,7 +19,18 @@ export default function QrCodeScreen() {
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    const url = apiBaseUrl + 'api/qr-code/validate/' + data
+    console.log(url)
+    axios
+      .get(url)
+      .then((response) => {
+        const data = response.data;
+        console.log(data)
+      })
+      .catch((error) => {
+        console.error("Erreur lors de la récupération des modules :", error);
+      });
+    // alert(`Bar code with type ${type} and data ${data} has been scanned!`);
   };
 
   if (hasPermission === null) {

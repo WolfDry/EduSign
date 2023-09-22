@@ -11,7 +11,7 @@ const Stack = createNativeStackNavigator()
 
 export default function App() {
   let user = {
-    isConnected: true
+    isConnected: false
   }
 
   if(user.isConnected){
